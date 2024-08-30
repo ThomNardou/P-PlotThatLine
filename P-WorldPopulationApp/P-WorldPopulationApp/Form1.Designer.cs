@@ -44,7 +44,7 @@
             this.worldpop.Location = new System.Drawing.Point(198, 101);
             this.worldpop.Name = "worldpop";
             this.worldpop.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            this.worldpop.Size = new System.Drawing.Size(565, 300);
+            this.worldpop.Size = new System.Drawing.Size(850, 300);
             this.worldpop.TabIndex = 0;
             this.worldpop.Text = "worldPopulation";
             this.worldpop.Click += new System.EventHandler(this.chart1_Click);
