@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\",
+  "WorkspaceRootPath": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\desktop\\wpfapp1\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\documents\\project\\p-plotthatline\\p-worldpopulationappwpf\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\desktop\\wpfapp1\\wpfapp1\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\documents\\project\\p-plotthatline\\p-worldpopulationappwpf\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\desktop\\wpfapp1\\wpfapp1\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\documents\\project\\p-plotthatline\\p-worldpopulationappwpf\\wpfapp1\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\desktop\\wpfapp1\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|c:\\users\\pk88yte\\documents\\project\\p-plotthatline\\p-worldpopulationappwpf\\wpfapp1\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FB91D1-80F4-4A5E-A830-91EDD14FD401}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,25 +29,16 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Country.cs",
-              "DocumentMoniker": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\Country.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Country.cs",
-              "ToolTip": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\Country.cs",
-              "RelativeToolTip": "WpfApp1\\Country.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T13:57:08.681Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "WpfApp1\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\AssemblyInfo.cs",
               "RelativeToolTip": "WpfApp1\\AssemblyInfo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -56,11 +47,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\MainWindow.xaml",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-09-06T13:50:29.002Z",
@@ -70,13 +61,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\pk88yte\\Desktop\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAADwvz0AAAAsAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAkwE8AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-06T13:50:27.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\Country.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Country.cs",
+              "ToolTip": "C:\\Users\\pk88yte\\Documents\\Project\\P-PlotThatLine\\P-WorldPopulationAppWPF\\WpfApp1\\Country.cs",
+              "RelativeToolTip": "WpfApp1\\Country.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T13:57:08.681Z",
               "EditorCaption": ""
             }
           ]

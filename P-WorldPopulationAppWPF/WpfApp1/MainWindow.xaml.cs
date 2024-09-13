@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.Metrics;
+﻿using ScottPlot;
+using ScottPlot.WPF;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -23,6 +26,11 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+
+
+
+
             bool isFirst = true;
 
             this.countryList = new List<Country>();
@@ -66,10 +74,18 @@ namespace WpfApp1
                     country.Population2022
                 };
 
-                WpfPlot1.Plot.Add.Scatter(years, pops);
 
+                WpfPlot1.Plot.Add.Scatter(years, pops).LegendText = country.CountryName;
+                WpfPlot1.Plot.Legend.IsVisible = false;
+                WpfPlot1.Plot.Legend.Alignment = Alignment.MiddleCenter;
                 WpfPlot1.Refresh();
             });
+        }
+
+        public void DisplayLegends(object sender, RoutedEventArgs e)
+        {
+            this.WpfPlot1.Plot.Legend.IsVisible = !this.WpfPlot1.Plot.Legend.IsVisible;
+            WpfPlot1.Refresh();
         }
     }
 }

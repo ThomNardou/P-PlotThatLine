@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized"
+        WindowStyle="None">
     
     <Grid>
+        <Button x:Name="displayButton" Width="100" Height="50" Panel.ZIndex="3" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" Click="DisplayLegends">Display Legends</Button>
         <ScottPlot:WpfPlot x:Name="WpfPlot1" />
     </Grid>
 </Window>

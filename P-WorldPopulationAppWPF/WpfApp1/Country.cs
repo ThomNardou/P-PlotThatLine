@@ -8,11 +8,12 @@ namespace WpfApp1
 {
     internal class Country
     {
-        public string Rank { get; set; }
-        public string CCA { get; set; }
-        public string CountryName { get; set; }
-        public string Capital { get; set; }
-        public string Contient { get; set; }
+        public string? Rank { get; set; }
+        public string? CCA { get; set; }
+        public string? CountryName { get; set; }
+        public string? Capital { get; set; }
+        public string? Contient { get; set; }
+        public Dictionary<int, int>? Population { get; set; }
         public int Population2022 { get; set; }
         public int Population2020 { get; set; }
         public int Population2015 { get; set; }
