@@ -10,8 +10,21 @@
         WindowState="Maximized"
         WindowStyle="None">
     
-    <Grid>
-        <Button x:Name="displayButton" Width="100" Height="50" Panel.ZIndex="3" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" Click="DisplayLegends">Display Legends</Button>
-        <ScottPlot:WpfPlot x:Name="WpfPlot1" />
-    </Grid>
+    <StackPanel>
+        <Canvas Margin="30" Height="50">
+            <StackPanel Orientation="Horizontal" Canvas.Left="10">
+                <StackPanel Margin="0,0,30,0" Width="100">
+                    <TextBlock>From [year]</TextBlock>
+                    <TextBox x:Name="fromText" MaxLength="4" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+                <StackPanel Width="100" Margin="0,0,30,0">
+                    <TextBlock>To [year]</TextBlock>
+                    <TextBox x:Name="toText" MaxLength="4" PreviewTextInput="NumberValidationTextBox"/>
+                </StackPanel>
+                <Button Click="FilterByYear">Search</Button>
+            </StackPanel>
+            <Button x:Name="displayButton" Canvas.Right="10" Width="100" Height="50" Panel.ZIndex="3" Click="DisplayLegends" Content="Display Legends"/>
+        </Canvas>
+        <ScottPlot:WpfPlot x:Name="WpfPlot1" Width="1700" Height="950" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </StackPanel>
 </Window>
