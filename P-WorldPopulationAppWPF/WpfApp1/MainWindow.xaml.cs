@@ -109,11 +109,31 @@ namespace WpfApp1
                 return;
             }
 
+            Plot plot = this.WpfPlot1.Plot;
+            plot.Clear();
+
             countryList
+                .Where(c  => c.Contient == "Europe")
+                .ToList()
                 .ForEach(country =>
                 {
-                    country.Population.Where(p => p.Key )
-                })
+                    Dictionary<int, int> pop = country.Population
+                    .Where(p => p.Key >= int.Parse(this.fromText.Text) && p.Key <= int.Parse(this.toText.Text))
+                    .ToDictionary();
+
+
+                    int[] years = pop.Select(p=> p.Key).ToArray();
+                    int[] pops = pop.Select(p=> p.Value).ToArray();
+
+
+                    plot.Add.Scatter(years, pops).LegendText = country.CountryName;
+                    plot.Legend.IsVisible = false;
+                    plot.Legend.Alignment = Alignment.MiddleCenter;
+
+                    WpfPlot1.Refresh();
+                });
+
+            Console.Write(this.fromText.Text);
 
         } 
 
