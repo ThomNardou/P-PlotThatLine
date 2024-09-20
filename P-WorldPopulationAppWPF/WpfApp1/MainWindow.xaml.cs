@@ -23,14 +23,18 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         List<Country> countryList;
+        Plot plot;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            plot = this.WpfPlot1.Plot;
 
+            var limits = plot.Axes.GetLimits();
 
-
+            
+            
 
             bool isFirst = true;
 
@@ -71,10 +75,10 @@ namespace WpfApp1
 
         public void DisplayLegends(object sender, RoutedEventArgs e)
         {
-            if (!this.WpfPlot1.Plot.Legend.IsVisible) displayButton.Content = "Hide Legends";
+            if (!plot.Legend.IsVisible) displayButton.Content = "Hide Legends";
             else displayButton.Content = "Display Legends";
             
-            this.WpfPlot1.Plot.Legend.IsVisible = !this.WpfPlot1.Plot.Legend.IsVisible;
+            plot.Legend.IsVisible = !this.WpfPlot1.Plot.Legend.IsVisible;
             WpfPlot1.Refresh();
         }
 
@@ -86,7 +90,7 @@ namespace WpfApp1
 
         private void FilterByYear(object sender, RoutedEventArgs e)
         {
-            WpfPlot1.Plot.Clear();
+            plot.Clear();
 
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Error;
@@ -109,31 +113,36 @@ namespace WpfApp1
                 return;
             }
 
-            Plot plot = this.WpfPlot1.Plot;
-            plot.Clear();
+            //plot.Clear();
 
-            countryList
-                .Where(c  => c.Contient == "Europe")
-                .ToList()
-                .ForEach(country =>
-                {
-                    Dictionary<int, int> pop = country.Population
-                    .Where(p => p.Key >= int.Parse(this.fromText.Text) && p.Key <= int.Parse(this.toText.Text))
-                    .ToDictionary();
-
-
-                    int[] years = pop.Select(p=> p.Key).ToArray();
-                    int[] pops = pop.Select(p=> p.Value).ToArray();
+            //countryList
+            //    .Where(c  => c.Contient == "Europe")
+            //    .ToList()
+            //    .ForEach(country =>
+            //    {
+            //        Dictionary<int, int> pop = country.Population
+            //        .Where(p => p.Key >= int.Parse(this.fromText.Text) && p.Key <= int.Parse(this.toText.Text))
+            //        .ToDictionary();
 
 
-                    plot.Add.Scatter(years, pops).LegendText = country.CountryName;
-                    plot.Legend.IsVisible = false;
-                    plot.Legend.Alignment = Alignment.MiddleCenter;
+            //        int[] years = pop.Select(p=> p.Key).ToArray();
+            //        int[] pops = pop.Select(p=> p.Value).ToArray();
 
-                    WpfPlot1.Refresh();
-                });
 
-            Console.Write(this.fromText.Text);
+            //        plot.Add.Scatter(years, pops).LegendText = country.CountryName;
+            //        plot.Legend.IsVisible = false;
+            //        plot.Legend.Alignment = Alignment.MiddleCenter;
+
+            //    });
+
+            plot.Axes.SetLimitsX(int.Parse(this.fromText.Text), int.Parse(this.toText.Text));
+            var limits = plot.Axes.GetLimits();
+
+            WpfPlot1.Plot.Axes.AutoScale();
+
+            DisplayAllCountry(countryList);
+
+            WpfPlot1.Refresh();
 
         } 
 
@@ -154,11 +163,17 @@ namespace WpfApp1
                     };
 
 
-                    WpfPlot1.Plot.Add.Scatter(years, pops).LegendText = country.CountryName;
-                    WpfPlot1.Plot.Legend.IsVisible = false;
-                    WpfPlot1.Plot.Legend.Alignment = Alignment.MiddleCenter;
-                    WpfPlot1.Refresh();
+                    plot.Add.Scatter(years, pops).LegendText = country.CountryName;
+                    plot.Legend.IsVisible = false;
+                    plot.Legend.Alignment = Alignment.MiddleCenter;
+
+                    
+
                 });
+
+            WpfPlot1.Refresh();
+
+            
         }
     }
 }
