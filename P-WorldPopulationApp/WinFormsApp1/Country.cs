@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1
+namespace WinFormsApp1
 {
-    internal class Country
+    public class Country
     {
         public string? Rank { get; set; }
         public string? CCA { get; set; }

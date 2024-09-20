@@ -1,40 +1,22 @@
-﻿using ScottPlot;
-using ScottPlot.WPF;
-using System.Diagnostics;
+using ScottPlot;
 using System.Diagnostics.Metrics;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WinFormsApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class Form1 : Form
     {
         List<Country> countryList;
         Plot plot;
-
-        public MainWindow()
+        public Form1()
         {
             InitializeComponent();
 
-            plot = this.WpfPlot1.Plot;
+            plot = this.formsPlot1.Plot;
 
             var limits = plot.Axes.GetLimits();
 
-            
-            
+
+
 
             bool isFirst = true;
 
@@ -73,27 +55,14 @@ namespace WpfApp1
             DisplayAllCountry(countryList);
         }
 
-        public void DisplayLegends(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (!plot.Legend.IsVisible) displayButton.Content = "Hide Legends";
-            else displayButton.Content = "Display Legends";
-            
-            plot.Legend.IsVisible = !this.WpfPlot1.Plot.Legend.IsVisible;
-            WpfPlot1.Refresh();
+            FilterByYear();
         }
 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void FilterByYear(object sender, RoutedEventArgs e)
+        private void FilterByYear()
         {
             plot.Clear();
-
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Error;
 
             if (this.fromText.Text == "" || this.toText.Text == "")
             {
@@ -103,48 +72,28 @@ namespace WpfApp1
 
             if (int.Parse(this.fromText.Text) > int.Parse(this.toText.Text))
             {
-                MessageBox.Show("From value cannot be higher than To value !", "Error", button, icon, MessageBoxResult.OK);
+                MessageBox.Show("From value cannot be higher than To value !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if ((int.Parse(this.toText.Text) > 2022 || int.Parse(this.toText.Text) < 2000) || (int.Parse(this.fromText.Text) > 2022 || int.Parse(this.fromText.Text) < 2000))
             {
-                MessageBox.Show("Please enter beetween 2000 and 2022 !", "Error", button, icon, MessageBoxResult.OK);
+                MessageBox.Show("Please enter beetween 2000 and 2022 !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            //plot.Clear();
-
-            //countryList
-            //    .Where(c  => c.Contient == "Europe")
-            //    .ToList()
-            //    .ForEach(country =>
-            //    {
-            //        Dictionary<int, int> pop = country.Population
-            //        .Where(p => p.Key >= int.Parse(this.fromText.Text) && p.Key <= int.Parse(this.toText.Text))
-            //        .ToDictionary();
-
-
-            //        int[] years = pop.Select(p=> p.Key).ToArray();
-            //        int[] pops = pop.Select(p=> p.Value).ToArray();
-
-
-            //        plot.Add.Scatter(years, pops).LegendText = country.CountryName;
-            //        plot.Legend.IsVisible = false;
-            //        plot.Legend.Alignment = Alignment.MiddleCenter;
-
-            //    });
 
             plot.Axes.SetLimitsX(int.Parse(this.fromText.Text), int.Parse(this.toText.Text));
             var limits = plot.Axes.GetLimits();
 
-            WpfPlot1.Plot.Axes.AutoScale();
+            this.formsPlot1.Plot.Axes.AutoScale();
 
             DisplayAllCountry(countryList);
 
-            WpfPlot1.Refresh();
+            this.formsPlot1.Interaction.Disable();
 
-        } 
+            this.formsPlot1.Refresh();
+
+        }
 
         private void DisplayAllCountry(List<Country> list)
         {
@@ -167,13 +116,22 @@ namespace WpfApp1
                     plot.Legend.IsVisible = false;
                     plot.Legend.Alignment = Alignment.MiddleCenter;
 
-                    
+
 
                 });
 
-            WpfPlot1.Refresh();
+            this.formsPlot1.Refresh();
 
-            
+
+        }
+
+        private void legends_Click(object sender, EventArgs e)
+        {
+            if (!plot.Legend.IsVisible) this.legends.Text = "Hide Legends";
+            else this.legends.Text = "Display Legends";
+
+            plot.Legend.IsVisible = !plot.Legend.IsVisible;
+            this.formsPlot1.Refresh();
         }
     }
 }
