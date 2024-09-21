@@ -33,43 +33,46 @@
             toText = new TextBox();
             button1 = new Button();
             legends = new Button();
+            checkBoxLock = new CheckBox();
             SuspendLayout();
             // 
             // formsPlot1
             // 
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(62, 93);
+            formsPlot1.Location = new Point(96, 115);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(669, 345);
+            formsPlot1.Size = new Size(1015, 493);
             formsPlot1.TabIndex = 0;
             // 
             // fromText
             // 
-            fromText.Location = new Point(40, 30);
+            fromText.Location = new Point(96, 41);
             fromText.Name = "fromText";
             fromText.Size = new Size(100, 23);
             fromText.TabIndex = 1;
+            fromText.KeyPress += checkOnlyNumbers;
             // 
             // toText
             // 
-            toText.Location = new Point(182, 30);
+            toText.Location = new Point(220, 41);
             toText.Name = "toText";
             toText.Size = new Size(100, 23);
             toText.TabIndex = 2;
+            toText.KeyPress += checkOnlyNumbers;
             // 
             // button1
             // 
-            button1.Location = new Point(319, 30);
+            button1.Location = new Point(337, 34);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(75, 34);
             button1.TabIndex = 3;
-            button1.Text = "button1";
+            button1.Text = "Search";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // legends
             // 
-            legends.Location = new Point(654, 20);
+            legends.Location = new Point(996, 30);
             legends.Name = "legends";
             legends.Size = new Size(115, 43);
             legends.TabIndex = 4;
@@ -77,11 +80,23 @@
             legends.UseVisualStyleBackColor = true;
             legends.Click += legends_Click;
             // 
+            // checkBoxLock
+            // 
+            checkBoxLock.AutoSize = true;
+            checkBoxLock.Location = new Point(1028, 614);
+            checkBoxLock.Name = "checkBoxLock";
+            checkBoxLock.Size = new Size(51, 19);
+            checkBoxLock.TabIndex = 5;
+            checkBoxLock.Text = "Lock";
+            checkBoxLock.UseVisualStyleBackColor = true;
+            checkBoxLock.CheckedChanged += checkBoxLock_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1221, 658);
+            Controls.Add(checkBoxLock);
             Controls.Add(legends);
             Controls.Add(button1);
             Controls.Add(toText);
@@ -100,5 +115,6 @@
         private TextBox toText;
         private Button button1;
         private Button legends;
+        private CheckBox checkBoxLock;
     }
 }

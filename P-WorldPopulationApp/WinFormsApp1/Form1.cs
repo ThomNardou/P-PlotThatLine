@@ -1,5 +1,6 @@
 using ScottPlot;
 using System.Diagnostics.Metrics;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp1
 {
@@ -89,7 +90,7 @@ namespace WinFormsApp1
 
             DisplayAllCountry(countryList);
 
-            this.formsPlot1.Interaction.Disable();
+            this.checkBoxLock.Checked = true;
 
             this.formsPlot1.Refresh();
 
@@ -115,9 +116,6 @@ namespace WinFormsApp1
                     plot.Add.Scatter(years, pops).LegendText = country.CountryName;
                     plot.Legend.IsVisible = false;
                     plot.Legend.Alignment = Alignment.MiddleCenter;
-
-
-
                 });
 
             this.formsPlot1.Refresh();
@@ -127,11 +125,27 @@ namespace WinFormsApp1
 
         private void legends_Click(object sender, EventArgs e)
         {
-            if (!plot.Legend.IsVisible) this.legends.Text = "Hide Legends";
-            else this.legends.Text = "Display Legends";
+            this.legends.Text = !plot.Legend.IsVisible ? "Hide Legends" : "Display Legends";
 
             plot.Legend.IsVisible = !plot.Legend.IsVisible;
             this.formsPlot1.Refresh();
+        }
+
+        private void checkBoxLock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLock.Checked)
+                this.formsPlot1.Interaction.Disable();
+            else
+                this.formsPlot1.Interaction.Enable();
+
+        }
+
+        private void checkOnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
