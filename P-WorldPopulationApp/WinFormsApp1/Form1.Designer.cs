@@ -34,6 +34,7 @@
             button1 = new Button();
             legends = new Button();
             checkBoxLock = new CheckBox();
+            countryCheckBox = new CheckedListBox();
             SuspendLayout();
             // 
             // formsPlot1
@@ -91,11 +92,21 @@
             checkBoxLock.UseVisualStyleBackColor = true;
             checkBoxLock.CheckedChanged += checkBoxLock_CheckedChanged;
             // 
+            // countryCheckBox
+            // 
+            countryCheckBox.FormattingEnabled = true;
+            countryCheckBox.Location = new Point(1117, 127);
+            countryCheckBox.Name = "countryCheckBox";
+            countryCheckBox.Size = new Size(120, 454);
+            countryCheckBox.TabIndex = 6;
+            countryCheckBox.ItemCheck += countryCheckBox_ItemCheck;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1221, 658);
+            ClientSize = new Size(1297, 662);
+            Controls.Add(countryCheckBox);
             Controls.Add(checkBoxLock);
             Controls.Add(legends);
             Controls.Add(button1);
@@ -116,5 +127,6 @@
         private Button button1;
         private Button legends;
         private CheckBox checkBoxLock;
+        private CheckedListBox countryCheckBox;
     }
 }

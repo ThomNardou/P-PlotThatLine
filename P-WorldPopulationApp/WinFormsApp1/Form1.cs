@@ -1,6 +1,8 @@
 using ScottPlot;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
@@ -112,11 +114,15 @@ namespace WinFormsApp1
                         country.Population[2022]
                     };
 
+                    this.countryCheckBox.Items.Add(country.CountryName);
+                    
 
                     plot.Add.Scatter(years, pops).LegendText = country.CountryName;
                     plot.Legend.IsVisible = false;
                     plot.Legend.Alignment = Alignment.MiddleCenter;
                 });
+
+            
 
             this.formsPlot1.Refresh();
 
@@ -146,6 +152,57 @@ namespace WinFormsApp1
             {
                 e.Handled = true;
             }
+        }
+
+        private void DisplayCountrySelected(List<Country> countries)
+        {
+            this.plot.Clear();
+            //this.formsPlot1.Refresh();
+
+            countries.ForEach(country => {
+                int[] years = { 2000, 2010, 2015, 2020, 2022 };
+
+                int[] pops = {
+                        country.Population[2000],
+                        country.Population[2010],
+                        country.Population[2015],
+                        country.Population[2020],
+                        country.Population[2022]
+                    };
+
+
+                plot.Add.Scatter(years, pops).LegendText = country.CountryName;
+                plot.Legend.IsVisible = false;
+                plot.Legend.Alignment = Alignment.MiddleCenter;
+
+                this.formsPlot1.Refresh();
+            });
+        }
+
+        private void countryCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            List<Country> selectedCountry = new List<Country>();
+            List<string> itemsChecked = new List<string>();
+
+            // TODO: Changer la façon de Get l'item après qu'il ait été coché
+            if (e.NewValue == CheckState.Checked)
+                itemsChecked.Add(countryCheckBox.Items[e.Index].ToString());
+            else
+                itemsChecked.Remove(countryCheckBox.Items[e.Index].ToString());
+
+
+            itemsChecked.ForEach(i =>
+            {
+                countryList
+                    .Where(c => c.CountryName == i.ToString())
+                    .ToList()
+                    .ForEach(country => selectedCountry.Add(country));
+            });
+
+
+
+            Console.WriteLine(selectedCountry);
+            DisplayCountrySelected(selectedCountry);
         }
     }
 }
