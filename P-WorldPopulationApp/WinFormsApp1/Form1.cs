@@ -8,7 +8,8 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        List<Country> countryList;
+        List<string> itemsChecked = new List<string>();
+        List<Country> countryList = new List<Country>();
         Plot plot;
         public Form1()
         {
@@ -16,18 +17,18 @@ namespace WinFormsApp1
 
             plot = this.formsPlot1.Plot;
 
-            var limits = plot.Axes.GetLimits();
-
-
-
 
             bool isFirst = true;
 
             this.countryList = new List<Country>();
 
-            File.ReadAllLines("../../../../world_population.csv").ToList().ForEach(s =>
-            {
-                if (!isFirst)
+            List<string> lines = File.ReadAllLines("../../../../world_population.csv").ToList();
+
+            string[] header = lines[0].Split(',');
+
+            lines.Skip(1)
+                .ToList()
+                .ForEach(s =>
                 {
                     string[] values = s.Split(',');
 
@@ -40,19 +41,23 @@ namespace WinFormsApp1
 
                     country.Population = new Dictionary<int, int>();
 
-                    country.Population.Add(2022, int.Parse(values[6]));
-                    country.Population.Add(2020, int.Parse(values[7]));
-                    country.Population.Add(2015, int.Parse(values[8]));
-                    country.Population.Add(2010, int.Parse(values[9]));
-                    country.Population.Add(2000, int.Parse(values[10]));
+                    int index = 0;
+                    header
+                    .ToList()
+                    .ForEach(h =>
+                    {
+                        if (h.EndsWith(" Population"))
+                        {
+                            int year = int.Parse(h.Split(' ')[0]);
+                            country.Population.Add(year, int.Parse(values[index + 1]));
+                        }
+
+                        index++;
+                    });
 
 
                     countryList.Add(country);
-                }
-
-                isFirst = false;
-
-            });
+                });
 
 
             DisplayAllCountry(countryList);
@@ -104,15 +109,9 @@ namespace WinFormsApp1
                 .Where(p => p.Contient == "Europe").ToList()
                 .ForEach(country =>
                 {
-                    int[] years = { 2000, 2010, 2015, 2020, 2022 };
+                    int[] years = country.Population.Keys.ToArray();
 
-                    int[] pops = {
-                        country.Population[2000],
-                        country.Population[2010],
-                        country.Population[2015],
-                        country.Population[2020],
-                        country.Population[2022]
-                    };
+                    int[] pops = country.Population.Values.ToArray();
 
                     this.countryCheckBox.Items.Add(country.CountryName);
                     
@@ -156,9 +155,6 @@ namespace WinFormsApp1
 
         private void DisplayCountrySelected(List<Country> countries)
         {
-            this.plot.Clear();
-            //this.formsPlot1.Refresh();
-
             countries.ForEach(country => {
                 int[] years = { 2000, 2010, 2015, 2020, 2022 };
 
@@ -182,7 +178,7 @@ namespace WinFormsApp1
         private void countryCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             List<Country> selectedCountry = new List<Country>();
-            List<string> itemsChecked = new List<string>();
+            
 
             // TODO: Changer la façon de Get l'item après qu'il ait été coché
             if (e.NewValue == CheckState.Checked)
@@ -199,9 +195,9 @@ namespace WinFormsApp1
                     .ForEach(country => selectedCountry.Add(country));
             });
 
+            plot.Clear();
+            formsPlot1.Refresh();
 
-
-            Console.WriteLine(selectedCountry);
             DisplayCountrySelected(selectedCountry);
         }
     }

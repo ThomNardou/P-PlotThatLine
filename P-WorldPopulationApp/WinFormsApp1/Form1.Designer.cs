@@ -35,6 +35,7 @@
             legends = new Button();
             checkBoxLock = new CheckBox();
             countryCheckBox = new CheckedListBox();
+            dateTimePicker1 = new DateTimePicker();
             SuspendLayout();
             // 
             // formsPlot1
@@ -101,11 +102,19 @@
             countryCheckBox.TabIndex = 6;
             countryCheckBox.ItemCheck += countryCheckBox_ItemCheck;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(513, 42);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1297, 662);
+            Controls.Add(dateTimePicker1);
             Controls.Add(countryCheckBox);
             Controls.Add(checkBoxLock);
             Controls.Add(legends);
@@ -128,5 +137,6 @@
         private Button legends;
         private CheckBox checkBoxLock;
         private CheckedListBox countryCheckBox;
+        private DateTimePicker dateTimePicker1;
     }
 }
