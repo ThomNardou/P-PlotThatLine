@@ -1,4 +1,5 @@
 using ScottPlot;
+using ScottPlot.TickGenerators.TimeUnits;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Text.RegularExpressions;
@@ -26,8 +27,14 @@ namespace WinFormsApp1
 
             string[] header = lines[0].Split(',');
 
+            var columnYears = header
+                .Select((column, index) => (Year: column, Index: index))
+                .Where(x => Regex.IsMatch(x.Year, "^[0-9]"))
+                .ToList();
 
-            lines.Skip(1)
+
+            lines
+                .Skip(1)
                 .ToList()
                 .ForEach(s =>
                 {
@@ -42,19 +49,12 @@ namespace WinFormsApp1
 
                     country.Population = new Dictionary<int, int>();
 
-                    int index = 8;
-                    header
-                    .ToList()
-                    .ForEach(h =>
+                    foreach (var year in columnYears)
                     {
-                        if (int.TryParse(h, out _))
-                        {
-                            int year = int.Parse(h);
-                            country.Population.Add(year, int.Parse(values[index]));
-                            index++;
-                        }
+                        country.Population.Add(int.Parse(year.Year), int.Parse(values[year.Index]));
+                    }
 
-                    });
+                    
 
 
                     countryList.Add(country);
