@@ -26,6 +26,7 @@ namespace WinFormsApp1
 
             string[] header = lines[0].Split(',');
 
+
             lines.Skip(1)
                 .ToList()
                 .ForEach(s =>
@@ -37,22 +38,22 @@ namespace WinFormsApp1
                     country.CCA = values[1];
                     country.CountryName = values[2];
                     country.Capital = values[3];
-                    country.Contient = values[4];
+                    country.Continent = values[4];
 
                     country.Population = new Dictionary<int, int>();
 
-                    int index = 0;
+                    int index = 8;
                     header
                     .ToList()
                     .ForEach(h =>
                     {
-                        if (h.EndsWith(" Population"))
+                        if (int.TryParse(h, out _))
                         {
-                            int year = int.Parse(h.Split(' ')[0]);
-                            country.Population.Add(year, int.Parse(values[index + 1]));
+                            int year = int.Parse(h);
+                            country.Population.Add(year, int.Parse(values[index]));
+                            index++;
                         }
 
-                        index++;
                     });
 
 
@@ -106,7 +107,7 @@ namespace WinFormsApp1
         private void DisplayAllCountry(List<Country> list)
         {
             list
-                .Where(p => p.Contient == "Europe").ToList()
+                .Where(p => p.Continent == "Europe").ToList()
                 .ForEach(country =>
                 {
                     int[] years = country.Population.Keys.ToArray();
@@ -156,15 +157,9 @@ namespace WinFormsApp1
         private void DisplayCountrySelected(List<Country> countries)
         {
             countries.ForEach(country => {
-                int[] years = { 2000, 2010, 2015, 2020, 2022 };
+                int[] years = country.Population.Keys.ToArray();
 
-                int[] pops = {
-                        country.Population[2000],
-                        country.Population[2010],
-                        country.Population[2015],
-                        country.Population[2020],
-                        country.Population[2022]
-                    };
+                int[] pops = country.Population.Values.ToArray();
 
 
                 plot.Add.Scatter(years, pops).LegendText = country.CountryName;

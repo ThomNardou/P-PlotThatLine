@@ -12,7 +12,7 @@ namespace WinFormsApp1
         public string? CCA { get; set; }
         public string? CountryName { get; set; }
         public string? Capital { get; set; }
-        public string? Contient { get; set; }
+        public string? Continent { get; set; }
         public Dictionary<int, int>? Population { get; set; }
         public int Population2022 { get; set; }
         public int Population2020 { get; set; }
