@@ -18,21 +18,17 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
-
-            WinFormsApp1.Settings.Default.IsFirstRun = true;
-            WinFormsApp1.Settings.Default.Save();
-
             string path = "";
 
-            if (WinFormsApp1.Settings.Default.IsFirstRun == true)
+            if (File.Exists("path.txt"))
             {
-
-
-
+                path = File.ReadAllLines("path.txt").ToArray()[0];
+            }
+            else
+            {
                 path = GetPathFileExplorer();
+                File.WriteAllLines("path.txt", [path]);
 
-                WinFormsApp1.Settings.Default.IsFirstRun = false;
-                WinFormsApp1.Settings.Default.Save();
             }
 
             plot = this.formsPlot1.Plot;
