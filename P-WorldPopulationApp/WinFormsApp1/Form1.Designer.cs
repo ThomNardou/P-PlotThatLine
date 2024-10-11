@@ -31,11 +31,12 @@
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             fromText = new TextBox();
             toText = new TextBox();
-            button1 = new Button();
+            searchButton = new Button();
             legends = new Button();
             checkBoxLock = new CheckBox();
             countryCheckBox = new CheckedListBox();
-            dateTimePicker1 = new DateTimePicker();
+            resetButton = new Button();
+            settingButton = new Button();
             SuspendLayout();
             // 
             // formsPlot1
@@ -62,19 +63,19 @@
             toText.TabIndex = 2;
             toText.KeyPress += checkOnlyNumbers;
             // 
-            // button1
+            // searchButton
             // 
-            button1.Location = new Point(337, 34);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 34);
-            button1.TabIndex = 3;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            searchButton.Location = new Point(337, 34);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(75, 34);
+            searchButton.TabIndex = 3;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
             // 
             // legends
             // 
-            legends.Location = new Point(996, 30);
+            legends.Location = new Point(978, 34);
             legends.Name = "legends";
             legends.Size = new Size(115, 43);
             legends.TabIndex = 4;
@@ -85,7 +86,7 @@
             // checkBoxLock
             // 
             checkBoxLock.AutoSize = true;
-            checkBoxLock.Location = new Point(1028, 614);
+            checkBoxLock.Location = new Point(1186, 612);
             checkBoxLock.Name = "checkBoxLock";
             checkBoxLock.Size = new Size(51, 19);
             checkBoxLock.TabIndex = 5;
@@ -102,23 +103,37 @@
             countryCheckBox.TabIndex = 6;
             countryCheckBox.ItemCheck += countryCheckBox_ItemCheck;
             // 
-            // dateTimePicker1
+            // resetButton
             // 
-            dateTimePicker1.Location = new Point(513, 42);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 7;
+            resetButton.Location = new Point(1117, 34);
+            resetButton.Name = "resetButton";
+            resetButton.Size = new Size(120, 43);
+            resetButton.TabIndex = 7;
+            resetButton.Text = "Reset";
+            resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += resetButton_Click;
+            // 
+            // settingButton
+            // 
+            settingButton.Location = new Point(1018, 608);
+            settingButton.Name = "settingButton";
+            settingButton.Size = new Size(75, 23);
+            settingButton.TabIndex = 8;
+            settingButton.Text = "Réglage";
+            settingButton.UseVisualStyleBackColor = true;
+            settingButton.Click += settingButton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1297, 662);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(settingButton);
+            Controls.Add(resetButton);
             Controls.Add(countryCheckBox);
             Controls.Add(checkBoxLock);
             Controls.Add(legends);
-            Controls.Add(button1);
+            Controls.Add(searchButton);
             Controls.Add(toText);
             Controls.Add(fromText);
             Controls.Add(formsPlot1);
@@ -133,10 +148,11 @@
         private ScottPlot.WinForms.FormsPlot formsPlot1;
         private TextBox fromText;
         private TextBox toText;
-        private Button button1;
+        private Button searchButton;
         private Button legends;
         private CheckBox checkBoxLock;
         private CheckedListBox countryCheckBox;
-        private DateTimePicker dateTimePicker1;
+        private Button resetButton;
+        private Button settingButton;
     }
 }
