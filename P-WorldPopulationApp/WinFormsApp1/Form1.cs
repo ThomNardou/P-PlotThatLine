@@ -65,35 +65,49 @@ namespace WinFormsApp1
         private void ReadCSV(string path)
         {
             countryList.Clear();
-            List<string> lines = File.ReadAllLines(path).ToList();
+            
+            try
+            {
+                List<string> lines = File.ReadAllLines(path).ToList();
 
-            string[] header = lines[0].Split(',');
+                string[] header = lines[0].Split(',');
 
-            columnYears = header
-                .Select((column, index) => (Year: column, Index: index))
-                .Where(x => Regex.IsMatch(x.Year, "^[0-9]"))
-                .ToList();
+                columnYears = header
+                    .Select((column, index) => (Year: column, Index: index))
+                    .Where(x => Regex.IsMatch(x.Year, "^[0-9]"))
+                    .ToList();
 
-            lines
-                .Skip(1)
-                .ToList()
-                .ForEach(s =>
-                {
-                    string[] values = s.Split(',');
+                lines
+                    .Skip(1)
+                    .ToList()
+                    .ForEach(s =>
+                    {
+                        string[] values = s.Split(',');
 
-                    Country country = new Country();
-                    country.Rank = values[0];
-                    country.CCA = values[1];
-                    country.CountryName = values[2];
-                    country.Capital = values[3];
-                    country.Continent = values[4];
+                        Country country = new Country();
+                        country.Rank = values[0];
+                        country.CCA = values[1];
+                        country.CountryName = values[2];
+                        country.Capital = values[3];
+                        country.Continent = values[4];
 
-                    country.Population = new Dictionary<int, int>();
+                        country.Population = new Dictionary<int, int>();
 
-                    columnYears.ForEach(x => country.Population.Add(int.Parse(x.Year), int.Parse(values[x.Index])));
+                        columnYears.ForEach(x => country.Population.Add(int.Parse(x.Year), int.Parse(values[x.Index])));
 
-                    countryList.Add(country);
-                });
+                        countryList.Add(country);
+                    });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Une erreur est survenue lors de la lecture des données merci de bien vouloir vérifier vos données !",
+                    "ERREUR",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                Environment.Exit( 0 );
+            }
 
 
         }
