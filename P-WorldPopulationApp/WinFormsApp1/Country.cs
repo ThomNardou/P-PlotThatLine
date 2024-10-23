@@ -14,10 +14,5 @@ namespace WinFormsApp1
         public string? Capital { get; set; }
         public string? Continent { get; set; }
         public Dictionary<int, int>? Population { get; set; }
-        public int Population2022 { get; set; }
-        public int Population2020 { get; set; }
-        public int Population2015 { get; set; }
-        public int Population2010 { get; set; }
-        public int Population2000 { get; set; }
     }
 }

@@ -18,6 +18,8 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            //formsPlot1.Size = new Size((int)(this.ClientSize.Width * 0.75), (int)(this.ClientSize.Height * 0.75));
+
             string path = "";
 
             if (File.Exists("path.txt"))
@@ -65,7 +67,7 @@ namespace WinFormsApp1
         private void ReadCSV(string path)
         {
             countryList.Clear();
-            
+
             try
             {
                 List<string> lines = File.ReadAllLines(path).ToList();
@@ -106,7 +108,7 @@ namespace WinFormsApp1
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-                Environment.Exit( 0 );
+                Environment.Exit(0);
             }
 
 
@@ -154,7 +156,6 @@ namespace WinFormsApp1
             countryCheckBox.Items.Clear();
             plot.Clear();
             list
-                .Where(c => c.Continent == "Europe")
                 .ToList()
                 .ForEach(country =>
                 {
@@ -258,10 +259,22 @@ namespace WinFormsApp1
             string path = GetPathFileExplorer();
 
             ReadCSV(path);
-            
+
             plot.Clear();
             formsPlot1.Refresh();
             DisplayAllCountry(countryList);
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            formsPlot1.Size = new Size((int)(this.ClientSize.Width * 0.75), (int)(this.ClientSize.Height * 0.75));
+
+            countryCheckBox.Height = (int)(formsPlot1.Height);
+
+            countryCheckBox.Location = new Point(formsPlot1.Right + 50, formsPlot1.Top);
+
+            checkBoxLock.Location = new Point(countryCheckBox.Right - checkBoxLock.Width, countryCheckBox.Bottom + 20);
+            settingButton.Location = new Point(formsPlot1.Right - settingButton.Width, formsPlot1.Bottom + 20);
         }
     }
 }

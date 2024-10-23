@@ -115,7 +115,7 @@
             // 
             // settingButton
             // 
-            settingButton.Location = new Point(1018, 608);
+            settingButton.Location = new Point(1036, 608);
             settingButton.Name = "settingButton";
             settingButton.Size = new Size(75, 23);
             settingButton.TabIndex = 8;
@@ -139,6 +139,7 @@
             Controls.Add(formsPlot1);
             Name = "Form1";
             Text = "Form1";
+            Resize += Form1_Resize;
             ResumeLayout(false);
             PerformLayout();
         }
